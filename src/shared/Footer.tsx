@@ -10,7 +10,7 @@ export default function Footer() {
       <Container className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0 py-4 sm:py-8">
         <Link
           href={"/"}
-          className="text-xl sm:text-4xl 2xl:text-6xl mb-2 sm:mb-0 hover:invert-50 ease-in-out duration-300"
+          className="text-xl sm:text-4xl 2xl:text-6xl mb-2 sm:mb-0 hover:invert-30 ease-in-out duration-300"
         >
           /Nikita Rodionov
         </Link>

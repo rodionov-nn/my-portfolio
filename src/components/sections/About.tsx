@@ -12,7 +12,7 @@ export default function About() {
           quality={100}
           priority
           sizes="100vw"
-          className="invert-0 dark:invert-100 rotate-45 object-fill transition duration-500 ease-in-out"
+          className="invert-10 dark:invert-90 rotate-45 object-fill transition duration-500 ease-in-out"
         />
       </div>
       <Container className="p-2 sm:p-4 md:p-6 rounded-xl border border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm shadow-xl/20">
