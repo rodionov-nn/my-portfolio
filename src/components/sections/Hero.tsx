@@ -1,4 +1,3 @@
-import Image from "next/image";
 import MainHeroImage from "../ui/MainHeroImage";
 import Container from "../ui/Container";
 
@@ -6,9 +5,6 @@ export default function Hero() {
   return (
     <section className="relative h-screen w-full pb-10 flex flex-col justify-end items-center text-center">
       <MainHeroImage />
-
-      <Image src="/images/star.png" width={1000} height={1000} alt="Star" className="absolute -rotate-15 left-0 top-0 size-100 invert-10 dark:invert-90 ease-in-out duration-300"/>
-      <Image src="/images/stars.png" width={1000} height={1000} alt="Stars" className="absolute right-0 bottom-0 size-100 invert-10 dark:invert-90 ease-in-out duration-300"/>
 
       <Container className="p-2 sm:p-4 md:p-6 text-left rounded-xl bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-invert-100 border border-neutral-700 backdrop-blur-[2px] shadow-xl/20">
         <div className="mb-3 sm:mb-4 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">

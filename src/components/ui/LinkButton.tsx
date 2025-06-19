@@ -5,18 +5,16 @@ type LinkButtonProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  iconLeft?: ReactNode;
-  iconRight?: ReactNode;
   external?: boolean;
+  onClick?: () => void;
 };
 
 export default function LinkButton({
   href,
   children,
   className = "",
-  iconLeft,
-  iconRight,
   external = false,
+  onClick,
 }: LinkButtonProps) {
   const baseClasses =
     "flex flex-row items-center gap-1 rounded-2xl border border-neutral-700 bg-neutral-900/30 hover:bg-neutral-800 duration-300 ease-in-out";
@@ -30,19 +28,16 @@ export default function LinkButton({
         target="_blank"
         rel="noopener noreferrer"
         className={finalClass}
+        onClick={onClick}
       >
-        {iconLeft}
         {children}
-        {iconRight}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={finalClass}>
-      {iconLeft}
+    <Link href={href} className={finalClass} onClick={onClick}>
       {children}
-      {iconRight}
     </Link>
   );
 }

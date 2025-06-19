@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`min-h-screen flex flex-col ${geistSans.variable} ${geistMono.variable} antialiased selection:text-lime-400 selection:bg-neutral-100/80 dark:selection:text-indigo-600 dark:selection:bg-neutral-900/80`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="text-[#0a0a0a] dark:text-[#ededed] flex flex-col min-h-screen ease-in-out duration-300">
+          <div className="text-[#0a0a0a] dark:text-[#ededed] flex flex-col min-h-screen transition-all ease-in-out duration-300">
             <Header />
             <main className="flex-grow flex flex-col items-center w-full mx-auto max-w-full gap-4">
               {children}

@@ -6,6 +6,7 @@ type NavLinkProps = {
   href: string;
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
 };
 
 export default function NavLink({

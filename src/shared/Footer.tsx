@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Instagram, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Instagram, Github, Linkedin } from "lucide-react";
 import NavLink from "@/components/ui/NavLink";
-import LinkButton from "@/components/ui/LinkButton";
+import ExternalLinkButton from "@/components/ui/ExternalLinkButton";
 import Container from "@/components/ui/Container";
 
 export default function Footer() {
@@ -10,48 +10,42 @@ export default function Footer() {
       <Container className="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0 py-4 sm:py-8">
         <Link
           href={"/"}
-          className="text-xl sm:text-4xl 2xl:text-6xl mb-2 sm:mb-0 hover:invert-30 ease-in-out duration-300"
+          className="text-md sm:text-1xl lg:text-4xl 2xl:text-6xl mb-2 sm:mb-0 hover:invert-30 ease-in-out duration-300"
         >
           /Nikita Rodionov
         </Link>
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full sm:w-auto items-center sm:items-start justify-center sm:justify-end">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 w-full sm:w-auto items-center sm:items-start justify-center sm:justify-end text-base xl:text-2xl">
           <div className="flex flex-row sm:flex-col gap-4 sm:gap-6 items-center sm:items-start">
             <NavLink href="/about">/About</NavLink>
             <NavLink href="/skills">/Skills</NavLink>
             <NavLink href="/contact">/Contact</NavLink>
           </div>
           <div className="grid grid-cols-2 gap-2 sm:gap-4 items-center mt-2 sm:mt-0">
-            <LinkButton
+            <ExternalLinkButton
               href="https://github.com/rodionov-nn"
-              external
-              iconLeft={<Github size={16} className="sm:h-5 sm:w-5" />}
-              iconRight={<ExternalLink size={12} />}
+              iconLeft={<Github className="sm:h-5 sm:w-5" />}
               className="p-2 text-xs sm:text-base rounded-full"
             >
               GitHub
-            </LinkButton>
-            <LinkButton
+            </ExternalLinkButton>
+            <ExternalLinkButton
               href="https://www.instagram.com/rodionov.nn"
-              external
-              iconLeft={<Instagram size={16} className="sm:h-5 sm:w-5" />}
-              iconRight={<ExternalLink size={12} />}
+              iconLeft={<Instagram className="sm:h-5 sm:w-5" />}
               className="p-2 text-xs sm:text-base rounded-full"
             >
               Instagram
-            </LinkButton>
-            <LinkButton
+            </ExternalLinkButton>
+            <ExternalLinkButton
               href="https://www.linkedin.com/in/rodionov-nn/"
-              external
-              iconLeft={<Linkedin size={16} className="sm:h-5 sm:w-5" />}
-              iconRight={<ExternalLink size={12} />}
+              iconLeft={<Linkedin className="sm:h-5 sm:w-5" />}
               className="p-2 text-xs sm:text-base rounded-full"
             >
               Linkedin
-            </LinkButton>
+            </ExternalLinkButton>
           </div>
         </div>
       </Container>
-      <p className="flex items-center justify-center pb-4 text-xs sm:text-base">
+      <p className="flex items-center justify-center text-center pb-4 text-xs sm:text-base">
         &copy; {new Date().getFullYear()} Nikita Rodionov. All rights reserved.
       </p>
     </footer>
