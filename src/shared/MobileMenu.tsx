@@ -63,7 +63,7 @@ export default function MobileMenu() {
           />
           <div
             ref={menuRef}
-            className="mobile-menu-panel relative mt-[5.5rem] rounded-xl border border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm p-6 px-4 text-lg font-mono space-y-4 transition-all duration-300 ease-in-out opacity-100 scale-100 pointer-events-auto translate-y-0 text-[#0a0a0a] dark:text-[#ededed]"
+            className="mobile-menu-panel relative mt-[5.5rem] rounded-xl border border-neutral-400 dark:border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm p-6 px-4 text-lg font-mono space-y-4 transition-all duration-300 ease-in-out opacity-100 scale-100 pointer-events-auto translate-y-0 text-[#0a0a0a] dark:text-[#ededed]"
             style={{
               zIndex: 1,
               willChange: "opacity, transform, left, width",

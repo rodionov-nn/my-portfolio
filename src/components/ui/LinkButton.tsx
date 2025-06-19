@@ -17,7 +17,7 @@ export default function LinkButton({
   onClick,
 }: LinkButtonProps) {
   const baseClasses =
-    "flex flex-row items-center gap-1 rounded-2xl border border-neutral-700 bg-neutral-900/30 hover:bg-neutral-800 duration-300 ease-in-out";
+    "flex flex-row items-center gap-1 rounded-2xl border border-neutral-400 dark:border-neutral-700 bg-neutral-200/30 dark:bg-neutral-900/30 hover:bg-neutral-400 dark:hover:bg-neutral-700 transition ease-in-out duration-300";
 
   const finalClass = `${baseClasses} ${className}`;
 

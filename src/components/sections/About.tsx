@@ -6,7 +6,7 @@ export default function About() {
       <div className="absolute inset-0 -z-10 select-none">
         
       </div>
-      <Container className="p-2 sm:p-4 md:p-6 rounded-xl border border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm shadow-xl/20">
+      <Container className="p-2 sm:p-4 md:p-6 rounded-xl border border-neutral-400 dark:border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm shadow-xl/20">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold pb-2 sm:pb-4">
           About me
         </h1>

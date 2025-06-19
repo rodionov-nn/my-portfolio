@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-screen w-full pb-10 flex flex-col justify-end items-center text-center">
       <MainHeroImage />
 
-      <Container className="p-2 sm:p-4 md:p-6 text-left rounded-xl bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-invert-100 border border-neutral-700 backdrop-blur-[2px] shadow-xl/20">
+      <Container className="p-2 sm:p-4 md:p-6 text-left rounded-xl bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-invert-100 border border-neutral-400 dark:border-neutral-700 backdrop-blur-[2px] shadow-xl/20">
         <div className="mb-3 sm:mb-4 text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
           <h1>
             &lt;Nikita Rodionov
