@@ -1,11 +1,11 @@
-import MainHeroImage from "@/components/ui/MainHeroImage";
+import ShaderBackground from "@/components/sections/ShaderBackground";
 import LinkButton from "@/components/ui/LinkButton";
 import Container from "@/components/ui/Container";
 
 export default function NotFound() {
   return (
     <section className="flex-grow flex flex-col justify-center items-center text-center py-10 px-4">
-  <MainHeroImage />
+  <ShaderBackground />
 
   <Container className="w-fit max-w-full flex flex-col items-center justify-center p-4 sm:p-6 font-mono rounded-xl border border-neutral-700 bg-neutral-100/30 dark:bg-neutral-900/30 backdrop-blur-sm shadow-xl/20">
     <h1 className="text-8xl sm:text-9xl font-bold">404</h1>
