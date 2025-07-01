@@ -5,7 +5,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 w-full z-50 text-2xl lg:text-3xl py-2 bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-xs">
+    <header className="fixed top-0 w-full z-50 text-2xl lg:text-3xl py-2 bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-xs select-none">
       <Container className="flex flex-row justify-between items-center">
         <Link href="/">Nikita Rodionov</Link>
         <nav className="hidden lg:flex flex-row gap-6 xl:gap-16">

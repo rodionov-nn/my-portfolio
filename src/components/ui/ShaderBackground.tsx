@@ -170,63 +170,62 @@ void main() {
 
 export default function ShaderBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const initialized = useRef(false);
 
     useEffect(() => {
-        if (initialized.current) return;
-        initialized.current = true;
-
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        // Инициализация WebGL renderer
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        // Сцена и камера
         const scene = new THREE.Scene();
-        const camera = new THREE.OrthographicCamera(
-            -1, 1, 1, -1, 0.1, 10
-        );
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
         camera.position.z = 1;
 
-        // Плоскость и материал
         const geometry = new THREE.PlaneGeometry(2, 2);
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 uTime: { value: 0 },
-                uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+                uResolution: { value: new THREE.Vector2() },
                 uSpeed: { value: 0.5 },
                 uGrainSize: { value: 2.5 }
             },
             fragmentShader,
             vertexShader,
         });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+        scene.add(new THREE.Mesh(geometry, material));
 
-        let animationId: number;
+        const resize = () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const dpr = window.devicePixelRatio || 1;
 
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            canvas.style.width = w + "px";
+            canvas.style.height = h + "px";
+
+            renderer.setSize(w, h, false);
+
+            camera.left = -w / h;
+            camera.right = w / h;
+            camera.updateProjectionMatrix();
+
+            material.uniforms.uResolution.value.set(w * dpr, h * dpr);
+        };
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        let rafId: number;
         const animate = () => {
             material.uniforms.uTime.value = performance.now() / 1000;
-            material.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
-            renderer.setSize(window.innerWidth, window.innerHeight, false);
             renderer.render(scene, camera);
-            animationId = requestAnimationFrame(animate);
+            rafId = requestAnimationFrame(animate);
         };
-
         animate();
 
-        // Обработка ресайза окна
-        const handleResize = () => {
-            material.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
-            renderer.setSize(window.innerWidth, window.innerHeight, false);
-        };
-        window.addEventListener("resize", handleResize);
-
         return () => {
-            cancelAnimationFrame(animationId);
-            window.removeEventListener("resize", handleResize);
+            cancelAnimationFrame(rafId);
+            window.removeEventListener("resize", resize);
             geometry.dispose();
             material.dispose();
             renderer.dispose();
@@ -234,25 +233,8 @@ export default function ShaderBackground() {
     }, []);
 
     return (
-        <div
-            className="invert-100 dark:invert-0 transition-all duration-500 ease-in-out"
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                zIndex: -1,
-                width: "100vw",
-                height: "100vh",
-            }}
-        >
-            <canvas
-                ref={canvasRef}
-                style={{
-                    width: "100vw",
-                    height: "100vh",
-                    display: "block"
-                }}
-            />
+        <div className="fixed inset-0 -z-10 invert-100 dark:invert-0">
+            <canvas ref={canvasRef} />
         </div>
     );
 }

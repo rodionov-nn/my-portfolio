@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Sedgwick_Ave_Display } from "next/font/google";
 import Header from "@/shared/Header";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import ShaderBackground from "@/components/ui/ShaderBackground";
@@ -14,6 +14,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const SedgwickAveDisplay = Sedgwick_Ave_Display({
+  variable: "--font-sedgwick-ave-display",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -33,14 +38,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scroll-smooth transition-colors ease-in-out duration-500"
+      className="scroll-smooth"
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${SedgwickAveDisplay.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex flex-col min-h-screen text-neutral-700 dark:text-neutral-300">
+          <div className="flex flex-col min-h-screen text-neutral-700 dark:text-neutral-300 transition-colors ease-in-out duration-300">
             <Header />
             <main className="flex-grow flex flex-col">
               <ShaderBackground />

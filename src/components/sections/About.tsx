@@ -6,9 +6,9 @@ export default function About() {
   return (
     <section id="about" className="relative z-0 bg-neutral-100 dark:bg-neutral-900">
         <GridBackground>
-            <Container className="min-h-screen flex flex-col items-center justify-center text-center gap-4">
+            <Container className="min-h-screen flex flex-col items-center justify-center text-justify indent-8 gap-4">
           <h1 className="text-6xl md:text-8xl font-extrabold bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text text-transparent">About me</h1>
-          <div className="flex flex-col text-2xl gap-4">
+          <div className="flex flex-col text-2xl indent-8 gap-2">
             <p>
             I&apos;m Nikita, a web developer based in Spain, currently studying Web
             Application Development. My journey began around age 9, when I tried
