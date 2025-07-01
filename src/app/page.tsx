@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import SkillsStack from "@/components/sections/SkillsStack";
+import Projects from "@/components/sections/Projects";
 
 export const metadata: Metadata = {
   title: "Nikita Rodionov — Web Developer & Designer",
@@ -27,6 +28,7 @@ export default function Home() {
       <Hero />
       <About />
       <SkillsStack />
+      <Projects />
     </div>
   );
 }

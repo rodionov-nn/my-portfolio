@@ -7,7 +7,7 @@ export default function Hero() {
         <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl 2xl:text-9xl font-extrabold">
           &lt;Nikita Rodionov Web Developer & Designer Portfolio /&gt;
         </h1>
-        <p className="text-2xl md:text-4xl font-bold">
+        <p className="text-lg md:text-4xl font-bold">
           Web Design & Development is in my DNA.
         </p>
       </Container>
