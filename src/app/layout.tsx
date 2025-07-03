@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${sedgwickAveDisplay.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex flex-col min-h-screen text-neutral-800 dark:text-neutral-200 transition-all ease-in-out duration-700">
+          <div className="flex flex-col min-h-screen text-neutral-800 dark:text-neutral-200">
             <Header />
             <main className="flex-grow flex flex-col">
               <ShaderBackground />

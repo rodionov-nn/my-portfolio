@@ -26,12 +26,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="relative bg-white dark:bg-black">
-        <div className="absolute inset-0 -z-10 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
-        <About />
-        <SkillsStack />
-        <Projects />
-      </div>
+      <About />
+      <SkillsStack />
+      <Projects />
     </>
   );
 }
