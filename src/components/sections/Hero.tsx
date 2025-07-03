@@ -11,7 +11,11 @@ export default function Hero() {
         </h1>
         <p className="text-md md:text-xl pb-6">
           I build for the web — with the mindset of a system architect. From UI
-          to deployment, I understand the <span className="font-bold text-neutral-900 dark:text-neutral-100">full stack</span>.
+          to deployment, I understand the{" "}
+          <span className="font-bold text-neutral-900 dark:text-neutral-100">
+            full stack
+          </span>
+          .
         </p>
         <Link
           href="#contact"
