@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Container from "../ui/Container";
+import ShadowEllipse from "../ui/ShadowEllipse";
 
 export default function About() {
   return (
     <section id="about" className="relative z-0">
       <Container className="min-h-screen flex flex-col items-center justify-center text-center gap-8">
-        <h1 className="text-6xl md:text-8xl font-extrabold bg-gradient-to-b from-neutral-200 to-neutral-800 dark:from-neutral-800 dark:to-neutral-200 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-b from-neutral-200 to-neutral-900 dark:from-neutral-800 dark:to-neutral-100 bg-clip-text text-transparent">
           About me
         </h1>
 
@@ -39,8 +40,7 @@ export default function About() {
           </p>
         </div>
       </Container>
-
-      <div className="absolute inset-0 -z-10 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
+      <ShadowEllipse />
     </section>
   );
 }

@@ -30,8 +30,8 @@ export default function Home() {
       <div className="bg-white dark:bg-black z-0">
         <GridBackground>
           <About />
-      <SkillsStack />
-      <Projects />
+          <SkillsStack />
+          <Projects />
         </GridBackground>
       </div>
     </>
