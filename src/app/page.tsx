@@ -3,7 +3,8 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import SkillsStack from "@/components/sections/SkillsStack";
 import Projects from "@/components/sections/Projects";
-import { GridBackground } from "@/components/ui/GridBackground";
+import Vision from "@/components/sections/Vision";
+import Contact from "@/components/sections/Contact";
 
 export const metadata: Metadata = {
   title: "Nikita Rodionov — Web Developer & Designer",
@@ -27,13 +28,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="bg-white dark:bg-black z-0">
-        <GridBackground>
-          <About />
-          <SkillsStack />
-          <Projects />
-        </GridBackground>
-      </div>
+      <About />
+      <SkillsStack />
+      <Projects />
+      <Vision />
+      <Contact />
     </>
   );
 }
