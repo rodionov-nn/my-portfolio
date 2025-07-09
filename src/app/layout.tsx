@@ -16,11 +16,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const sedgwickAveDisplay = Sedgwick_Ave_Display({
-  variable: "--font-sedgwick-ave-display",
-  weight: "400",
-});
-
 export const metadata: Metadata = {
   title: {
     default: "Nikita Rodionov",
@@ -38,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sedgwickAveDisplay.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
