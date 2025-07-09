@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sedgwick_Ave_Display } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/shared/Header";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import ShaderBackground from "@/components/ui/ShaderBackground";
