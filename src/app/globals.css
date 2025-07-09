@@ -7,12 +7,18 @@
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-sedgwick-ave-display: var(--font-sedgwick-ave-display);
+  --color-primary: var(--color-neutral-900);
+  --color-primary-dark: var(--color-neutral-200);
+  --color-secondary: var(--color-zinc-600);
+  --color-secondary-dark: var(--color-zinc-400);
+  --color-accent: var(--color-purple-600);
+  --color-accent-dark: var(--color-lime-400);
 }
 
 @media (prefers-color-scheme: dark) {

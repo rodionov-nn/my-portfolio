@@ -6,7 +6,7 @@ import NavLink from "@/components/ui/NavLink";
 
 export default function Footer() {
   return (
-    <footer className="py-4 text-2xl lg:text-3xl bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-t-1 border-neutral-400 dark:border-neutral-700 select-none">
+    <footer className="py-4 text-2xl lg:text-3xl text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-t-1 border-neutral-400 dark:border-neutral-700 select-none">
       <Container>
         <div className="flex flex-row justify-between items-center">
             <Link href="/" className="flex items-center gap-2">

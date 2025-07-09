@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 w-full z-50 text-2xl lg:text-3xl py-2 bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-xs select-none">
+    <header className="sticky top-0 w-full z-50 text-2xl lg:text-3xl py-2 text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-xs select-none">
       <Container className="flex flex-row justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <div className="relative size-6 lg:size-8 dark:invert-100">
@@ -16,7 +16,7 @@ export default function Header() {
           <Divider />
           Nikita Rodionov
         </Link>
-        <nav className="hidden xl:flex flex-row gap-6 xl:gap-16">
+        <nav className="hidden lg:flex text-xl flex-row gap-6 xl:gap-16">
           <NavLink href="#about">About</NavLink>
           <NavLink href="#SkillsStack">Skills & Stack</NavLink>
           <NavLink href="#projects">Projects</NavLink>

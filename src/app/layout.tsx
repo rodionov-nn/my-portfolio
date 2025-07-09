@@ -45,7 +45,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <div className="flex flex-col min-h-screen text-neutral-800 dark:text-neutral-200">
+          <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow flex flex-col">
               <ShaderBackground />

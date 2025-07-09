@@ -7,11 +7,11 @@ import Vision from "@/components/sections/Vision";
 import Contact from "@/components/sections/Contact";
 
 export const metadata: Metadata = {
-  title: "Nikita Rodionov — Web Developer & Designer",
+  title: "Nikita Rodionov — Portfolio",
   description:
     "Hi, I’m Nikita. I build interactive, emotional, and modern websites using React, Next.js, and Tailwind CSS.",
   openGraph: {
-    title: "Nikita Rodionov — Web Developer & Designer",
+    title: "Nikita Rodionov — Portfolio",
     description: "Creative and modern portfolio.",
     images: [
       {
