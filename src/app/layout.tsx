@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/shared/Header";
 import { ThemeProvider } from "@/lib/ThemeProvider";
@@ -23,6 +23,14 @@ export const metadata: Metadata = {
   },
   description: "Web developer and designer portfolio.",
   keywords: ["web developer", "portfolio", "react", "next.js", "tailwind"],
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({
