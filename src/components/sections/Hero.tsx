@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-transparent to-white dark:to-black h-screen text-primary dark:text-primary-dark">
       <Container className="flex flex-col items-center justify-center h-full text-center gap-4">
-        <h2 className="text-4xl md:text-6xl">Nikita Rodionov</h2>
+        <h2 className="text-4xl md:text-6xl font-bold">Nikita Rodionov</h2>
         <h1 className="text-5xl md:text-7xl font-extrabold text-black dark:text-white">
           <Typewriter
           texts={[

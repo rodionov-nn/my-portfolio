@@ -3,7 +3,6 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import SkillsStack from "@/components/sections/SkillsStack";
 import Projects from "@/components/sections/Projects";
-import Vision from "@/components/sections/Vision";
 import Contact from "@/components/sections/Contact";
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export default function Home() {
       <About />
       <SkillsStack />
       <Projects />
-      <Vision />
       <Contact />
     </>
   );

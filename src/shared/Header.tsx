@@ -20,7 +20,6 @@ export default function Header() {
           <NavLink href="#about">About</NavLink>
           <NavLink href="#SkillsStack">Skills & Stack</NavLink>
           <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#vision">Vision</NavLink>
           <NavLink href="#contact">Contact</NavLink>
         </nav>
         <ThemeToggle />
