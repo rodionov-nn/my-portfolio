@@ -15,7 +15,7 @@ export default function NavLink({
   className = "",
 }: NavLinkProps) {
   const baseClass =
-    "relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 rounded-full after:bg-primary dark:after:bg-primary-dark after:transition-all hover:after:w-full";
+    "relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary dark:after:bg-primary-dark after:transition-all hover:after:w-full";
 
   return (
     <Link href={href} className={cn(baseClass, className)}>

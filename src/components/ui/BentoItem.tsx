@@ -21,12 +21,12 @@ export default function BentoItem({
 }: BentoItemProps) {
   return (
     <div
-      className={`relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`}
+      className={`group relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-neutral-900/50 dark:shadow-neutral-500/50 shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`}
     >
       {icon && (
         <div className="flex flex-row items-start">
           <div
-            className={`text-5xl mb-2 bg-white dark:bg-black p-2 rounded-xl hover:${color}`}
+            className={`text-5xl mb-2 bg-white dark:bg-black p-2 rounded-xl shadow-neutral-900/50 dark:shadow-neutral-500/50 shadow-sm ${color} transition ease-in-out duration-300`}
           >
             {icon}
           </div>

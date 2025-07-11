@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 w-full z-50 text-2xl lg:text-3xl py-2 text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-xs select-none">
+    <header className="sticky top-0 w-full z-50 text-2xl lg:text-3xl py-2 text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-b-1 border-neutral-400 dark:border-neutral-700 shadow-neutral-900/50 dark:shadow-neutral-500/50 shadow-md select-none">
       <Container className="flex flex-row justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <div className="relative size-6 lg:size-8 dark:invert-100">

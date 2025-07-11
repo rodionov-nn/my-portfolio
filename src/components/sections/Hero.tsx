@@ -1,4 +1,5 @@
 import Container from "../ui/Container";
+import Typewriter from "../ui/TypeWriter";
 import Link from "next/link";
 
 export default function Hero() {
@@ -7,7 +8,16 @@ export default function Hero() {
       <Container className="flex flex-col items-center justify-center h-full text-center gap-4">
         <h2 className="text-4xl md:text-6xl">Nikita Rodionov</h2>
         <h1 className="text-5xl md:text-7xl font-extrabold text-black dark:text-white">
-          Front-end Dev. / IT Enthusiast
+          <Typewriter
+          texts={[
+            "Frontend Developer",
+            "IT Enthusiast",
+            "Builder of cool stuff",
+            "UI/UX Visionary",
+          ]}
+          speed={100}
+          pause={3000}
+        />
         </h1>
         <p className="text-md md:text-xl text-secondary dark:text-secondary-dark pb-6">
           I build for the web — with the mindset of a system architect. From UI
