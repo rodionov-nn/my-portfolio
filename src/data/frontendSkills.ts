@@ -1,0 +1,68 @@
+import { SiHtml5, SiCss3, SiJavascript, SiTailwindcss, SiReact, SiTypescript, SiNextdotjs, SiFramer } from "react-icons/si";
+
+export const frontendSkills = [
+  {
+    title: "HTML",
+    description: "Semantic, accessible, and modern markup. Confident in building structured, SEO-friendly layouts.",
+    progress: 98,
+    icon: SiHtml5,
+    status: "Expert",
+    color: "group-hover:text-orange-500",
+  },
+  {
+    title: "CSS",
+    description: "Experienced with Flexbox, Grid, animations, media queries, and custom styling techniques.",
+    progress: 96,
+    icon: SiCss3,
+    status: "Expert",
+    color: "group-hover:text-blue-500",
+  },
+  {
+    title: "JavaScript",
+    description: "Comfortable with syntax, control flow, DOM manipulation, and ES6+ features. Learning async patterns.",
+    progress: 45,
+    icon: SiJavascript,
+    status: "Learning",
+    color: "group-hover:text-yellow-300",
+  },
+  {
+    title: "Tailwind CSS",
+    description: "Primary styling method. Confident in utility-first design, breakpoints, themes, and custom config.",
+    progress: 95,
+    icon: SiTailwindcss,
+    status: "Expert",
+    color: "group-hover:text-sky-500",
+  },
+  {
+    title: "React",
+    description: "Working with functional components, hooks, props, and local state. Building dynamic UIs.",
+    progress: 55,
+    icon: SiReact,
+    status: "Learning",
+    color: "group-hover:text-cyan-500",
+  },
+  {
+    title: "Typescript",
+    description: "Learning type annotations, interfaces, and component typing. Applying in React projects.",
+    progress: 40,
+    icon: SiTypescript,
+    status: "Learning",
+    color: "group-hover:text-sky-600",
+  },
+  {
+    title: "Next.js",
+    description: "Exploring SSR, routing, layouts, and performance optimization for scalable React apps.",
+    progress: 45,
+    icon: SiNextdotjs,
+    status: "Learning",
+    color: "group-hover:invert-100",
+  },
+  {
+    title: "Motion",
+    description: "Creating smooth UI transitions and microinteractions with Framer Motion in React apps.",
+    progress: 30,
+    icon: SiFramer,
+    status: "Learning",
+    color: "group-hover:invert-100",
+  },
+];
