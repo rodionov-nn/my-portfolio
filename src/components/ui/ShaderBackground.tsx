@@ -194,14 +194,12 @@ export default function ShaderBackground() {
         scene.add(new THREE.Mesh(geometry, material));
 
         const resize = () => {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
+            const w = canvas.clientWidth;
+            const h = canvas.clientHeight;
             const dpr = window.devicePixelRatio || 1;
 
             canvas.width = w * dpr;
             canvas.height = h * dpr;
-            canvas.style.width = w + "px";
-            canvas.style.height = h + "px";
 
             renderer.setSize(w, h, false);
 
@@ -233,8 +231,8 @@ export default function ShaderBackground() {
     }, []);
 
     return (
-        <div className="fixed inset-0 -z-10 invert-100 dark:invert-0">
-            <canvas ref={canvasRef} />
+        <div className="fixed inset-0 -z-10 invert-100 dark:invert-0 h-screen">
+            <canvas ref={canvasRef} className="w-screen h-screen" />
         </div>
     );
 }
