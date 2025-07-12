@@ -63,7 +63,7 @@ export default function GridItem({
       )}
       {typeof progress === "number" && (
         <div>
-          <div className="flex justify-between italic">
+          <div className="flex justify-between font-serif italic">
             <p>Mastery:</p>
             <p>{progress}%</p>
           </div>
