@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Header from "@/shared/Header";
 import { ThemeProvider } from "@/lib/ThemeProvider";
+import MetaThemeColor from "@/lib/MetaThemeColor";
 import ShaderBackground from "@/components/ui/ShaderBackground";
 import Footer from "@/shared/Footer";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
+          <MetaThemeColor />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow flex flex-col">
