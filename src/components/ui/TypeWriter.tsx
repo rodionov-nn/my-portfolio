@@ -62,7 +62,7 @@ export default function Typewriter({
     <motion.span
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="inline-block min-h-[2em] md:min-h-auto"
+      className="inline-block"
     >
       {currentText}
       <motion.span

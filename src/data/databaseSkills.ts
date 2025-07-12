@@ -7,7 +7,7 @@ export const databaseSkills = [
     progress: 60,
     icon: SiPostgresql,
     status: "Learning",
-    color: "group-hover:text-[#396c94]",
+    color: "group-hover:text-[#4169E1]",
   },
   {
     title: "MongoDB",
@@ -15,6 +15,6 @@ export const databaseSkills = [
     progress: 60,
     icon: SiMongodb,
     status: "Learning",
-    color: "group-hover:text-lime-500",
+    color: "group-hover:text-[#47A248]",
   },
 ];

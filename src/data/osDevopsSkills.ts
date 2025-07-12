@@ -5,18 +5,18 @@ export const osDevopsSkills = [
   {
     title: "Docker",
     description: "Using containers for isolated development environments and testing setups.",
-    progress: 100,
+    progress: 90,
     icon: SiDocker,
-    status: "Expert",
-    color: "group-hover:text-sky-500",
+    status: "Proficient",
+    color: "group-hover:text-[#2496ED]",
   },
   {
     title: "Proxmox VE",
     description: "Managing virtual machines and containers in a homelab and dev/test environments.",
     progress: 80,
     icon: SiProxmox,
-    status: "Expert",
-    color: "group-hover:text-orange-500",
+    status: "Proficient",
+    color: "group-hover:text-[#E57000]",
   },
   {
     title: "Linux",

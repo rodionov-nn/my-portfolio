@@ -8,7 +8,7 @@ export const toolsSkills = [
     progress: 80,
     icon: SiGit,
     status: "Proficient",
-    color: "group-hover:text-[#f05033]",
+    color: "group-hover:text-[#F05032]",
   },
   {
     title: "GitHub",
@@ -24,7 +24,7 @@ export const toolsSkills = [
     progress: 100,
     icon: VscVscode,
     status: "Expert",
-    color: "group-hover:text-blue-500",
+    color: "group-hover:text-[#2F80ED]",
   },
   {
     title: "npm",
@@ -32,7 +32,7 @@ export const toolsSkills = [
     progress: 100,
     icon: SiNpm,
     status: "Expert",
-    color: "group-hover:text-red-500",
+    color: "group-hover:text-[#CB3837]",
   },
   {
     title: "ChatGPT",
@@ -56,7 +56,7 @@ export const toolsSkills = [
     progress: 80,
     icon: SiFigma,
     status: "Proficient",
-    color: "group-hover:invert-100",
+    color: "group-hover:text-[#F24E1E]",
   },
   {
     title: "Photoshop",

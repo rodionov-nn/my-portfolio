@@ -7,7 +7,7 @@ export const frontendSkills = [
     progress: 98,
     icon: SiHtml5,
     status: "Expert",
-    color: "group-hover:text-orange-500",
+    color: "group-hover:text-[#E34F26]",
   },
   {
     title: "CSS",
@@ -23,7 +23,7 @@ export const frontendSkills = [
     progress: 45,
     icon: SiJavascript,
     status: "Learning",
-    color: "group-hover:text-yellow-300",
+    color: "group-hover:text-[#F7DF1E]",
   },
   {
     title: "Tailwind CSS",
@@ -31,7 +31,7 @@ export const frontendSkills = [
     progress: 95,
     icon: SiTailwindcss,
     status: "Expert",
-    color: "group-hover:text-sky-500",
+    color: "group-hover:text-[#06B6D4]",
   },
   {
     title: "React",
@@ -39,7 +39,7 @@ export const frontendSkills = [
     progress: 55,
     icon: SiReact,
     status: "Learning",
-    color: "group-hover:text-cyan-500",
+    color: "group-hover:text-[#61DAFB]",
   },
   {
     title: "Typescript",
@@ -47,7 +47,7 @@ export const frontendSkills = [
     progress: 40,
     icon: SiTypescript,
     status: "Learning",
-    color: "group-hover:text-sky-600",
+    color: "group-hover:text-[#3178C6]",
   },
   {
     title: "Next.js",
@@ -63,6 +63,6 @@ export const frontendSkills = [
     progress: 30,
     icon: SiFramer,
     status: "Learning",
-    color: "group-hover:invert-100",
+    color: "group-hover:text-[#0055FF]",
   },
 ];
