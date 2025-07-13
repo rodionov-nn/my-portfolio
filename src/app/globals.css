@@ -13,7 +13,6 @@
   --color-secondary: var(--color-zinc-600);
   --color-secondary-dark: var(--color-zinc-400);
   --color-accent: var(--color-purple-600);
-  --color-accent-dark: var(--color-lime-400);
 }
 
 @layer base {

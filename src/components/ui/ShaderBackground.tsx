@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { useTheme } from "next-themes";
 import * as THREE from "three";
 
 const fragmentShader = `
@@ -12,6 +13,7 @@ uniform float uTime;
 uniform vec2 uResolution;
 uniform float uSpeed; // Добавляем управление скоростью
 uniform float uGrainSize; // Новый uniform для размера шума
+uniform float uIsDark; // Новый uniform для темы
 
 #define time uTime
 
@@ -85,21 +87,31 @@ Field field(in vec2 p, in int mode) {
 }
 
 vec3 applyGradient(float t) {
-    // Ваши цвета в формате vec3 (RGB от 0.0 до 1.0)
-    vec3 color1 = vec3(35.0/255.0, 27.0/255.0, 43.0/255.0);  // rgba(35, 27, 43, 1)
-    vec3 color2 = vec3(102.0/255.0, 0.0/255.0, 255.0/255.0); // rgba(102, 0, 255, 1)
-    vec3 color3 = vec3(1.0, 1.0, 1.0);                       // rgba(255, 255, 255, 1)
-    vec3 color4 = vec3(90.0/255.0, 0.0/255.0, 255.0/255.0);  // rgba(90, 0, 255, 1)
-    vec3 color5 = vec3(1.0, 1.0, 1.0);                       // rgba(255, 255, 255, 1)
-    
-    // Позиции из вашего градиента (преобразованы в 0..1)
+    // Цвета для светлой и тёмной темы
+    vec3 color1Light = vec3(245.0/255.0, 245.0/255.0, 255.0/255.0); // светлый фон
+    vec3 color2Light = vec3(180.0/255.0, 200.0/255.0, 255.0/255.0);
+    vec3 color3Light = vec3(102.0/255.0, 0.0/255.0, 255.0/255.0);
+    vec3 color4Light = vec3(255.0/255.0, 255.0/255.0, 255.0/255.0);
+    vec3 color5Light = vec3(200.0/255.0, 220.0/255.0, 255.0/255.0);
+
+    vec3 color1Dark = vec3(35.0/255.0, 27.0/255.0, 43.0/255.0);
+    vec3 color2Dark = vec3(102.0/255.0, 0.0/255.0, 255.0/255.0);
+    vec3 color3Dark = vec3(1.0, 1.0, 1.0);
+    vec3 color4Dark = vec3(90.0/255.0, 0.0/255.0, 255.0/255.0);
+    vec3 color5Dark = vec3(1.0, 1.0, 1.0);
+
     float pos1 = 0.0;
     float pos2 = 0.305908203125;
     float pos3 = 0.5;
     float pos4 = 0.703857421875;
     float pos5 = 1.0;
-    
-    // Применяем градиент с учетом позиций
+
+    vec3 color1 = mix(color1Light, color1Dark, uIsDark);
+    vec3 color2 = mix(color2Light, color2Dark, uIsDark);
+    vec3 color3 = mix(color3Light, color3Dark, uIsDark);
+    vec3 color4 = mix(color4Light, color4Dark, uIsDark);
+    vec3 color5 = mix(color5Light, color5Dark, uIsDark);
+
     if (t < pos2) {
         return mix(color1, color2, (t - pos1)/(pos2 - pos1));
     } else if (t < pos3) {
@@ -170,6 +182,7 @@ void main() {
 
 export default function ShaderBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const { resolvedTheme } = useTheme();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -186,7 +199,8 @@ export default function ShaderBackground() {
                 uTime: { value: 0 },
                 uResolution: { value: new THREE.Vector2() },
                 uSpeed: { value: 0.5 },
-                uGrainSize: { value: 2.5 }
+                uGrainSize: { value: 2.5 },
+                uIsDark: { value: resolvedTheme === "dark" ? 1.0 : 0.0 }
             },
             fragmentShader,
             vertexShader,
@@ -216,6 +230,8 @@ export default function ShaderBackground() {
         let rafId: number;
         const animate = () => {
             material.uniforms.uTime.value = performance.now() / 1000;
+            // Обновляем тему каждый кадр (на случай динамической смены)
+            material.uniforms.uIsDark.value = resolvedTheme === "dark" ? 1.0 : 0.0;
             renderer.render(scene, camera);
             rafId = requestAnimationFrame(animate);
         };
@@ -228,10 +244,10 @@ export default function ShaderBackground() {
             material.dispose();
             renderer.dispose();
         };
-    }, []);
+    }, [resolvedTheme]);
 
     return (
-        <div className="fixed inset-0 -z-10 invert-100 dark:invert-0 h-screen">
+        <div className="fixed inset-0 -z-10 h-screen">
             <canvas ref={canvasRef} className="w-screen h-screen" />
         </div>
     );

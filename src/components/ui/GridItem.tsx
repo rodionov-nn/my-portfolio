@@ -39,12 +39,12 @@ export default function GridItem({
   return (
     
     <div
-      className={`group relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-neutral-900/50 dark:shadow-neutral-500/50 shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`}
+      className={`group relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-neutral-900/50 dark:shadow-neutral-600/50 shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`}
     >
       {icon && (
         <div className="flex flex-row items-start justify-between">
           <div
-            className={`text-5xl mb-2 bg-white dark:bg-black p-2 rounded-xl shadow-neutral-900/50 dark:shadow-neutral-500/50 shadow-sm ${color} transition ease-in-out duration-500`}
+            className={`text-5xl mb-2 bg-white dark:bg-black p-2 rounded-xl shadow-neutral-900/50 dark:shadow-neutral-600/50 shadow-sm ${color} transition ease-in-out duration-500`}
           >
             {icon}
           </div>
@@ -69,7 +69,7 @@ export default function GridItem({
           </div>
           <div className="w-full h-2 mt-2 bg-neutral-300/40 dark:bg-neutral-700/40 border border-neutral-300 dark:border-neutral-700 rounded-full backdrop-blur-md shadow-md overflow-hidden">
             <div
-              className="h-full bg-accent dark:bg-accent-dark rounded-full transition-all duration-300"
+              className="h-full bg-accent rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
