@@ -194,8 +194,8 @@ export default function ShaderBackground() {
         scene.add(new THREE.Mesh(geometry, material));
 
         const resize = () => {
-            const w = canvas.clientWidth;
-            const h = canvas.clientHeight;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
             const dpr = window.devicePixelRatio || 1;
 
             canvas.width = w * dpr;

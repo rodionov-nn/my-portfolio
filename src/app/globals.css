@@ -15,3 +15,16 @@
   --color-accent: var(--color-purple-600);
   --color-accent-dark: var(--color-lime-400);
 }
+
+@layer base {
+  h1,
+  h2 {
+    @apply font-serif;
+  }
+  h1 {
+    @apply text-5xl md:text-8xl bg-gradient-to-b from-primary-dark to-primary dark:from-primary dark:to-primary-dark bg-clip-text text-transparent;
+  }
+  h2 {
+    @apply text-4xl md:text-6xl;
+  }
+}
