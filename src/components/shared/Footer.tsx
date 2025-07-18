@@ -9,13 +9,16 @@ export default function Footer() {
     <footer className="py-4 text-2xl lg:text-3xl text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-t-1 border-neutral-500 dark:border-neutral-700 select-none">
       <Container>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 font-serif hover:opacity-80 transition ease-in-out duration-300">
-          <div className="relative size-6 lg:size-8 dark:invert-100">
-            <Image src="/logo.png" fill alt="N" />
-          </div>
-          <Divider />
-          Nikita Rodionov
-        </Link>
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-serif hover:opacity-80 transition ease-in-out duration-300"
+          >
+            <div className="relative size-6 lg:size-8 dark:invert-100">
+              <Image src="/logo.png" fill alt="N" />
+            </div>
+            <Divider />
+            Nikita Rodionov
+          </Link>
           <nav className="flex flex-col items-start gap-2">
             <NavLink href="#about">About</NavLink>
             <NavLink href="#SkillsStack">Skills & Stack</NavLink>

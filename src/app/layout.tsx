@@ -4,6 +4,7 @@ import Header from "@/components/shared/Header";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import MetaThemeColor from "@/lib/MetaThemeColor";
 import ShaderBackground from "@/components/ui/ShaderBackground";
+import Socials from "@/components/ui/Socials";
 import Footer from "@/components/shared/Footer";
 import "./globals.css";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
             <main className="flex-grow flex flex-col">
               <ShaderBackground />
               {children}
+              <Socials />
             </main>
             <Footer />
           </div>
