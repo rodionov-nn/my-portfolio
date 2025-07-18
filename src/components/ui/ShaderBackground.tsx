@@ -207,86 +207,35 @@ export default function ShaderBackground() {
         });
         scene.add(new THREE.Mesh(geometry, material));
 
-        // Определяем мобильное устройство
-        const isMobile = typeof window !== "undefined" && /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+        // Храним предыдущие размеры
+        let prevW = 0;
+        let prevH = 0;
 
-        // Плавная анимация изменения размера
-        let resizeAnimationFrame: number | null = null;
-        const animateResize = (startW: number, startH: number, endW: number, endH: number, duration = 400) => {
-            const dpr = window.devicePixelRatio || 1;
-            const startTime = performance.now();
-            function step(now: number) {
-                if (!canvas) return;
-                const elapsed = now - startTime;
-                const t = Math.min(elapsed / duration, 1);
-                // easeInOutQuad
-                const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-                const w = Math.round(startW + (endW - startW) * ease);
-                const h = Math.round(startH + (endH - startH) * ease);
-                // Не трогаем canvas.width/height во время анимации!
-                renderer.setSize(w, h, false);
-                camera.left = -w / h;
-                camera.right = w / h;
-                camera.updateProjectionMatrix();
-                material.uniforms.uResolution.value.set(w * dpr, h * dpr);
-                if (t < 1) {
-                    resizeAnimationFrame = requestAnimationFrame(step);
-                } else {
-                    // В конце анимации синхронизируем canvas.width/height
-                    canvas.width = endW * dpr;
-                    canvas.height = endH * dpr;
-                    renderer.setSize(endW, endH, false);
-                    camera.left = -endW / endH;
-                    camera.right = endW / endH;
-                    camera.updateProjectionMatrix();
-                    material.uniforms.uResolution.value.set(endW * dpr, endH * dpr);
-                }
-            }
-            if (resizeAnimationFrame) cancelAnimationFrame(resizeAnimationFrame);
-            resizeAnimationFrame = requestAnimationFrame(step);
-        };
-
-        const resize = (animate = false) => {
-            if (!canvas) return;
+        const resize = () => {
             const w = window.innerWidth;
-            let h;
-            if (isMobile) {
-                h = (window.visualViewport && window.visualViewport.height > 0)
-                    ? window.visualViewport.height
-                    : window.innerHeight;
-            } else {
-                h = window.innerHeight;
-            }
+            const h = window.innerHeight;
             const dpr = window.devicePixelRatio || 1;
-            if (animate && canvas.width && canvas.height) {
-                const startW = Math.round(canvas.width / dpr);
-                const startH = Math.round(canvas.height / dpr);
-                animateResize(startW, startH, w, h);
-            } else {
+
+            // Только если размеры реально изменились
+            if (w !== prevW || h !== prevH) {
+                prevW = w;
+                prevH = h;
+
                 canvas.width = w * dpr;
                 canvas.height = h * dpr;
+
                 renderer.setSize(w, h, false);
+
                 camera.left = -w / h;
                 camera.right = w / h;
                 camera.updateProjectionMatrix();
+
                 material.uniforms.uResolution.value.set(w * dpr, h * dpr);
             }
         };
 
         resize();
-        let orientationTimeout: number | null = null;
-        if (isMobile) {
-            window.addEventListener("orientationchange", () => {
-                if (orientationTimeout !== null) {
-                    clearTimeout(orientationTimeout);
-                }
-                orientationTimeout = window.setTimeout(() => {
-                    resize(true); // плавная анимация
-                }, 300); // 300мс — обычно достаточно, можно увеличить при необходимости
-            });
-        } else {
-            window.addEventListener("resize", () => resize(false));
-        }
+        window.addEventListener("resize", resize);
 
         let rafId: number;
         const animate = () => {
@@ -300,15 +249,7 @@ export default function ShaderBackground() {
 
         return () => {
             cancelAnimationFrame(rafId);
-            if (resizeAnimationFrame) cancelAnimationFrame(resizeAnimationFrame);
-            if (isMobile) {
-                // Удаляем обработчик orientationchange (анонимная функция, поэтому removeEventListener не сработает, но это не критично для SPA)
-                if (orientationTimeout !== null) {
-                    clearTimeout(orientationTimeout);
-                }
-            } else {
-                // removeEventListener не сработает, т.к. мы теперь используем анонимную функцию
-            }
+            window.removeEventListener("resize", resize);
             geometry.dispose();
             material.dispose();
             renderer.dispose();
