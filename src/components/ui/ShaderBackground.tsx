@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import * as THREE from "three";
 
@@ -180,9 +180,11 @@ void main() {
 }
 `;
 
+
 export default function ShaderBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const { resolvedTheme } = useTheme();
+    const [visible, setVisible] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -236,11 +238,16 @@ export default function ShaderBackground() {
         observer.observe(canvas);
 
         let rafId: number;
+        let firstFrame = true;
         const animate = () => {
             material.uniforms.uTime.value = performance.now() / 1000;
             // Обновляем тему каждый кадр (на случай динамической смены)
             material.uniforms.uIsDark.value = resolvedTheme === "dark" ? 1.0 : 0.0;
             renderer.render(scene, camera);
+            if (firstFrame) {
+                setVisible(true);
+                firstFrame = false;
+            }
             rafId = requestAnimationFrame(animate);
         };
         animate();
@@ -256,7 +263,11 @@ export default function ShaderBackground() {
 
     return (
         <div className="fixed inset-0 -z-10 h-screen">
-            <canvas ref={canvasRef} className="w-screen h-screen" />
+            <canvas
+                ref={canvasRef}
+                className="w-screen h-screen"
+                style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.3s' }}
+            />
         </div>
     );
 }
