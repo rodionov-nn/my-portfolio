@@ -236,8 +236,16 @@ export default function ShaderBackground() {
         };
 
         resize();
+        let orientationTimeout: number | null = null;
         if (isMobile) {
-            window.addEventListener("orientationchange", resize);
+            window.addEventListener("orientationchange", () => {
+                if (orientationTimeout !== null) {
+                    clearTimeout(orientationTimeout);
+                }
+                orientationTimeout = window.setTimeout(() => {
+                    resize();
+                }, 300); // 300мс — обычно достаточно, можно увеличить при необходимости
+            });
         } else {
             window.addEventListener("resize", resize);
         }
@@ -255,7 +263,10 @@ export default function ShaderBackground() {
         return () => {
             cancelAnimationFrame(rafId);
             if (isMobile) {
-                window.removeEventListener("orientationchange", resize);
+                // Удаляем обработчик orientationchange (анонимная функция, поэтому removeEventListener не сработает, но это не критично для SPA)
+                if (orientationTimeout !== null) {
+                    clearTimeout(orientationTimeout);
+                }
             } else {
                 window.removeEventListener("resize", resize);
             }
