@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import SkillsStack from "@/components/sections/SkillsStack";
-import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 
 export const metadata: Metadata = {
@@ -29,7 +28,6 @@ export default function Home() {
       <Hero />
       <About />
       <SkillsStack />
-      <Projects />
       <Contact />
     </>
   );

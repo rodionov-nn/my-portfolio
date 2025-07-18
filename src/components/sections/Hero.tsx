@@ -32,7 +32,7 @@ export default function Hero() {
           className="relative z-10 hover:translate-y-1 transition ease-in-out duration-300"
         >
           <p className="p-2 text-accent uppercase font-mono font-bold backdrop-blur-xs shadow-xs rounded-full border border-neutral-400 dark:border-neutral-700 bg-neutral-300/30 dark:bg-neutral-900/30 hover:bg-neutral-400/30 dark:hover:bg-neutral-700/30 active:bg-neutral-500/30 dark:active:bg-neutral-600/30 transition ease-in-out duration-300">
-            Lets build something cool
+            Let&apos;s build something cool
           </p>
           <div className="absolute top-1 left-0 backdrop-blur-xs shadow-xs rounded-full border border-neutral-400 dark:border-neutral-700 bg-neutral-300/30 dark:bg-neutral-900/30 w-full h-full -z-10" />
         </Link>
