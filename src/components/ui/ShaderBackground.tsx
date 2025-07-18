@@ -209,7 +209,10 @@ export default function ShaderBackground() {
 
         const resize = () => {
             const w = window.innerWidth;
-            const h = window.innerHeight;
+            // Используем visualViewport.height если доступно и больше 0, иначе fallback
+            const h = (window.visualViewport && window.visualViewport.height > 0)
+                ? window.visualViewport.height
+                : window.innerHeight;
             const dpr = window.devicePixelRatio || 1;
 
             canvas.width = w * dpr;
