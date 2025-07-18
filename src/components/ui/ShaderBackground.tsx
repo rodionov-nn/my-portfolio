@@ -207,16 +207,13 @@ export default function ShaderBackground() {
         });
         scene.add(new THREE.Mesh(geometry, material));
 
-
         let prevW = 0;
         let prevH = 0;
         const resize = () => {
-            // Используем visualViewport если доступен
-            const viewport = window.visualViewport;
-            const w = viewport ? viewport.width : window.innerWidth;
-            const h = viewport ? viewport.height : window.innerHeight;
+            const rect = canvas.getBoundingClientRect();
+            const w = rect.width;
+            const h = rect.height;
             const dpr = window.devicePixelRatio || 1;
-
             // Проверяем, изменились ли размеры
             if (w === prevW && h === prevH) return;
             prevW = w;
@@ -235,7 +232,8 @@ export default function ShaderBackground() {
         };
 
         resize();
-        window.addEventListener("resize", resize);
+        const observer = new window.ResizeObserver(resize);
+        observer.observe(canvas);
 
         let rafId: number;
         const animate = () => {
@@ -249,7 +247,7 @@ export default function ShaderBackground() {
 
         return () => {
             cancelAnimationFrame(rafId);
-            window.removeEventListener("resize", resize);
+            observer.disconnect();
             geometry.dispose();
             material.dispose();
             renderer.dispose();
