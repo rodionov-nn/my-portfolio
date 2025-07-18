@@ -38,10 +38,10 @@ export default function Hero() {
 
           <span className="absolute inset-0 translate-x-[45%] scale-0 rounded-full bg-accent opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100" />
 
-          <span className="z-10 relative flex items-center justify-center overflow-hidden rounded-full bg-accent text-primary dark:text-primary-dark p-2 transition-colors duration-300 group-hover:bg-transparent">
-            <FaArrowRight className="transition-all duration-300 group-hover:translate-x-5 group-hover:opacity-0" />
+          <span className="z-10 relative flex items-center justify-center overflow-hidden rounded-full bg-accent text-primary dark:text-primary-dark p-2 transition-colors duration-300 ease-in-out group-hover:bg-transparent">
+            <FaArrowRight className="transition-all duration-300 ease-in-out group-hover:translate-x-5 group-hover:opacity-0" />
 
-            <FaArrowRight className="absolute -translate-x-5 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+            <FaArrowRight className="absolute -translate-x-5 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:opacity-100" />
           </span>
         </Link>
       </Container>
