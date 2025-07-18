@@ -212,9 +212,12 @@ export default function ShaderBackground() {
         let prevH = 0;
 
         const resize = () => {
-            const w = window.innerWidth;
-            const h = window.innerHeight;
             const dpr = window.devicePixelRatio || 1;
+            // Используем размеры контейнера, а не окна
+            const rect = canvas.parentElement?.getBoundingClientRect();
+            if (!rect) return;
+            const w = Math.round(rect.width);
+            const h = Math.round(rect.height);
 
             // Только если размеры реально изменились
             if (w !== prevW || h !== prevH) {
