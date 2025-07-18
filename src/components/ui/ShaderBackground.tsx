@@ -207,34 +207,31 @@ export default function ShaderBackground() {
         });
         scene.add(new THREE.Mesh(geometry, material));
 
-        // Храним предыдущие размеры
+
         let prevW = 0;
         let prevH = 0;
-
         const resize = () => {
+            // Используем visualViewport если доступен
+            const viewport = window.visualViewport;
+            const w = viewport ? viewport.width : window.innerWidth;
+            const h = viewport ? viewport.height : window.innerHeight;
             const dpr = window.devicePixelRatio || 1;
-            // Используем размеры контейнера, а не окна
-            const rect = canvas.parentElement?.getBoundingClientRect();
-            if (!rect) return;
-            const w = Math.round(rect.width);
-            const h = Math.round(rect.height);
 
-            // Только если размеры реально изменились
-            if (w !== prevW || h !== prevH) {
-                prevW = w;
-                prevH = h;
+            // Проверяем, изменились ли размеры
+            if (w === prevW && h === prevH) return;
+            prevW = w;
+            prevH = h;
 
-                canvas.width = w * dpr;
-                canvas.height = h * dpr;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
 
-                renderer.setSize(w, h, false);
+            renderer.setSize(w, h, false);
 
-                camera.left = -w / h;
-                camera.right = w / h;
-                camera.updateProjectionMatrix();
+            camera.left = -w / h;
+            camera.right = w / h;
+            camera.updateProjectionMatrix();
 
-                material.uniforms.uResolution.value.set(w * dpr, h * dpr);
-            }
+            material.uniforms.uResolution.value.set(w * dpr, h * dpr);
         };
 
         resize();
