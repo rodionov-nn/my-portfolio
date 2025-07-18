@@ -223,8 +223,7 @@ export default function ShaderBackground() {
                 const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
                 const w = Math.round(startW + (endW - startW) * ease);
                 const h = Math.round(startH + (endH - startH) * ease);
-                canvas.width = w * dpr;
-                canvas.height = h * dpr;
+                // Не трогаем canvas.width/height во время анимации!
                 renderer.setSize(w, h, false);
                 camera.left = -w / h;
                 camera.right = w / h;
@@ -232,6 +231,15 @@ export default function ShaderBackground() {
                 material.uniforms.uResolution.value.set(w * dpr, h * dpr);
                 if (t < 1) {
                     resizeAnimationFrame = requestAnimationFrame(step);
+                } else {
+                    // В конце анимации синхронизируем canvas.width/height
+                    canvas.width = endW * dpr;
+                    canvas.height = endH * dpr;
+                    renderer.setSize(endW, endH, false);
+                    camera.left = -endW / endH;
+                    camera.right = endW / endH;
+                    camera.updateProjectionMatrix();
+                    material.uniforms.uResolution.value.set(endW * dpr, endH * dpr);
                 }
             }
             if (resizeAnimationFrame) cancelAnimationFrame(resizeAnimationFrame);
@@ -249,13 +257,12 @@ export default function ShaderBackground() {
             } else {
                 h = window.innerHeight;
             }
+            const dpr = window.devicePixelRatio || 1;
             if (animate && canvas.width && canvas.height) {
-                const dpr = window.devicePixelRatio || 1;
                 const startW = Math.round(canvas.width / dpr);
                 const startH = Math.round(canvas.height / dpr);
                 animateResize(startW, startH, w, h);
             } else {
-                const dpr = window.devicePixelRatio || 1;
                 canvas.width = w * dpr;
                 canvas.height = h * dpr;
                 renderer.setSize(w, h, false);
