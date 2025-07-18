@@ -207,12 +207,20 @@ export default function ShaderBackground() {
         });
         scene.add(new THREE.Mesh(geometry, material));
 
+        // Определяем мобильное устройство
+        const isMobile = typeof window !== "undefined" && /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
         const resize = () => {
             const w = window.innerWidth;
-            // Используем visualViewport.height если доступно и больше 0, иначе fallback
-            const h = (window.visualViewport && window.visualViewport.height > 0)
-                ? window.visualViewport.height
-                : window.innerHeight;
+            let h;
+            if (isMobile) {
+                // На мобильных фиксируем высоту только при монтировании и смене ориентации
+                h = (window.visualViewport && window.visualViewport.height > 0)
+                    ? window.visualViewport.height
+                    : window.innerHeight;
+            } else {
+                h = window.innerHeight;
+            }
             const dpr = window.devicePixelRatio || 1;
 
             canvas.width = w * dpr;
@@ -228,7 +236,11 @@ export default function ShaderBackground() {
         };
 
         resize();
-        window.addEventListener("resize", resize);
+        if (isMobile) {
+            window.addEventListener("orientationchange", resize);
+        } else {
+            window.addEventListener("resize", resize);
+        }
 
         let rafId: number;
         const animate = () => {
@@ -242,7 +254,11 @@ export default function ShaderBackground() {
 
         return () => {
             cancelAnimationFrame(rafId);
-            window.removeEventListener("resize", resize);
+            if (isMobile) {
+                window.removeEventListener("orientationchange", resize);
+            } else {
+                window.removeEventListener("resize", resize);
+            }
             geometry.dispose();
             material.dispose();
             renderer.dispose();
