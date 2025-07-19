@@ -10,7 +10,7 @@ export default function SkillsStack() {
   return (
     <section
       id="SkillsStack"
-      className="relative bg-gradient-to-b from-white dark:from-black to-white/50 dark:to-black/50 text-primary dark:text-primary-dark py-16 md:py-32"
+      className="relative bg-gradient-to-b from-white dark:from-black via-white/50 dark:via-black/50 to-white dark:to-black text-primary dark:text-primary-dark py-16 md:py-32"
     >
       <Container className="flex flex-col min-h-screen items-center justify-center gap-8 md:gap-16 py-16">
         <h1>

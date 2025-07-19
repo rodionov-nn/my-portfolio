@@ -1,6 +1,5 @@
 import Container from "../ui/Container";
 import { GridBackground } from "../ui/GridBackground";
-import ShadowEllipse from "../ui/ShadowEllipse";
 
 export default function About() {
   return (
@@ -57,7 +56,6 @@ export default function About() {
           </div>
         </Container>
       </GridBackground>
-      <ShadowEllipse />
     </section>
   );
 }
