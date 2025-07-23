@@ -181,7 +181,7 @@ void main() {
 `;
 
 
-export default function ShaderBackground() {
+export function ShaderBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const { resolvedTheme } = useTheme();
     const [visible, setVisible] = useState(false);

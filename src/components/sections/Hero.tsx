@@ -1,8 +1,7 @@
-import Container from "../ui/Container";
-import Typewriter from "../ui/TypeWriter";
-import ClickToAction from "../ui/ClickToAction";
+import { Container } from "../shared";
+import { ClickToAction, Typewriter } from "../ui";
 
-export default function Hero() {
+export function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-transparent to-white dark:to-black h-screen text-primary dark:text-primary-dark">
       <Container className="flex flex-col items-center justify-center h-full text-center gap-4">

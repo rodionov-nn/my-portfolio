@@ -1,12 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import Header from "@/components/shared/Header";
-import { ThemeProvider } from "@/lib/ThemeProvider";
-import MetaThemeColor from "@/lib/MetaThemeColor";
-import ShaderBackground from "@/components/ui/ShaderBackground";
-import Socials from "@/components/ui/Socials";
-import Footer from "@/components/shared/Footer";
 import "./globals.css";
+import { Footer, Header, ShaderBackground, Socials } from "@/components/shared";
+import { MetaThemeProvider, ThemeProvider } from "@/components/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +52,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <MetaThemeColor />
+          <MetaThemeProvider />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow flex flex-col">

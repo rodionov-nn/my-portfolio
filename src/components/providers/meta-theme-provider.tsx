@@ -8,14 +8,14 @@ const DARK_COLOR = "#000000";
 const LIGHT_STATUS_STYLE = "default";
 const DARK_STATUS_STYLE = "black-translucent";
 
-export default function MetaThemeColor() {
+export const MetaThemeProvider = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
     const color = theme === "dark" ? DARK_COLOR : LIGHT_COLOR;
     const statusStyle = theme === "dark" ? DARK_STATUS_STYLE : LIGHT_STATUS_STYLE;
 
-    // theme-color (Chrome, Android, Windows)
+    // theme-color
     let themeMeta = document.querySelector('meta[name="theme-color"]');
     if (!themeMeta) {
       themeMeta = document.createElement("meta");
@@ -24,7 +24,7 @@ export default function MetaThemeColor() {
     }
     themeMeta.setAttribute("content", color);
 
-    // msapplication-navbutton-color (Windows Phone)
+    // msapplication-navbutton-color
     let msMeta = document.querySelector('meta[name="msapplication-navbutton-color"]');
     if (!msMeta) {
       msMeta = document.createElement("meta");
@@ -33,7 +33,7 @@ export default function MetaThemeColor() {
     }
     msMeta.setAttribute("content", color);
 
-    // apple-mobile-web-app-status-bar-style (Safari iOS)
+    // apple-mobile-web-app-status-bar-style
     let appleMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (!appleMeta) {
       appleMeta = document.createElement("meta");
@@ -42,7 +42,7 @@ export default function MetaThemeColor() {
     }
     appleMeta.setAttribute("content", statusStyle);
 
-    // viewport-fit=cover (Safari iOS, for full overlay)
+    // viewport-fit=cover
     const viewportMeta = document.querySelector('meta[name="viewport"]');
     if (viewportMeta) {
       const content = viewportMeta.getAttribute("content") || "";
@@ -53,4 +53,4 @@ export default function MetaThemeColor() {
   }, [theme]);
 
   return null;
-}
+};

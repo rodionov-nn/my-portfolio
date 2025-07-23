@@ -10,7 +10,7 @@ type NavLinkProps = {
   onClick?: () => void;
 };
 
-export default function NavLink({
+export function NavLink({
   href,
   children,
   className = "",

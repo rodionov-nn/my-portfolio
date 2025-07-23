@@ -1,8 +1,17 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import React from "react";
+
+interface Props {
+  className?: string;
+}
+
 import { FaArrowRight } from "react-icons/fa";
 
-export default function ClickToAction() {
+export const ClickToAction: React.FC<React.PropsWithChildren<Props>> = ({
+  className,
+}) => {
   return (
     <button
       type="button"
@@ -12,7 +21,10 @@ export default function ClickToAction() {
           el.scrollIntoView({ behavior: "smooth" });
         }
       }}
-      className="group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-neutral-400 bg-neutral-300/30 py-[6px] pr-[6px] pl-3 font-bold text-accent hover:text-primary hover:dark:text-primary-dark backdrop-blur-xs transition-all duration-300 hover:bg-transparent dark:border-neutral-700 dark:bg-neutral-900/30 dark:hover:bg-transparent active:scale-95"
+      className={cn(
+        "group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-neutral-400 bg-neutral-300/30 py-[6px] pr-[6px] pl-3 font-bold text-accent hover:text-primary hover:dark:text-primary-dark backdrop-blur-xs transition-all duration-300 hover:bg-transparent dark:border-neutral-700 dark:bg-neutral-900/30 dark:hover:bg-transparent active:scale-95",
+        className
+      )}
     >
       <span className="z-10 px-3 transition-colors duration-300">
         Let&apos;s build something cool
@@ -27,4 +39,4 @@ export default function ClickToAction() {
       </span>
     </button>
   );
-}
+};

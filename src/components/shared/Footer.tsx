@@ -1,12 +1,19 @@
+import { cn } from "@/lib/utils";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Divider from "@/components/ui/Divider";
-import Container from "@/components/ui/Container";
-import NavLink from "@/components/ui/NavLink";
+import { Container } from "./Container";
+import { Divider, NavLink } from "../ui";
 
-export default function Footer() {
+interface Props {
+  className?: string;
+}
+
+export const Footer: React.FC<React.PropsWithChildren<Props>> = ({
+  className,
+}) => {
   return (
-    <footer className="py-4 text-2xl lg:text-3xl text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-t-1 border-neutral-500 dark:border-neutral-700 select-none">
+    <footer className={cn("py-4 text-2xl lg:text-3xl text-primary dark:text-primary-dark bg-neutral-100/20 dark:bg-neutral-900/20 backdrop-blur-xs border-t-1 border-neutral-500 dark:border-neutral-700 select-none", className)}>
       <Container>
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <Link

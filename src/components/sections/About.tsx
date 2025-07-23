@@ -1,7 +1,7 @@
-import Container from "../ui/Container";
-import { GridBackground } from "../ui/GridBackground";
+import { Container } from "../shared";
+import { GridBackground } from "../ui";
 
-export default function About() {
+export function About() {
   return (
     <section
       id="about"

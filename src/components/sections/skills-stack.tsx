@@ -1,12 +1,9 @@
-import Container from "../ui/Container";
 import React from "react";
-import GridItem from "../ui/GridItem";
-import { frontendSkills } from "../../data/frontendSkills";
-import { toolsSkills } from "../../data/toolsSkills";
-import { databaseSkills } from "../../data/databaseSkills";
-import { osDevopsSkills } from "../../data/osDevopsSkills";
+import { Container } from "../shared";
+import { GridItem } from "../ui";
+import { databaseSkills, frontendSkills, osDevopsSkills, toolsSkills } from "@/data";
 
-export default function SkillsStack() {
+export function SkillsStack() {
   return (
     <section
       id="SkillsStack"

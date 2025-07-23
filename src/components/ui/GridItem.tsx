@@ -1,4 +1,7 @@
-interface GridItemProps {
+import { cn } from "@/lib/utils";
+import React from "react";
+
+interface Props {
   title?: string;
   description?: string;
   progress?: number;
@@ -8,6 +11,7 @@ interface GridItemProps {
   rowSpan?: number;
   colSpan?: number;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export function getStatusClass(status?: string): string {
@@ -25,7 +29,7 @@ export function getStatusClass(status?: string): string {
   }
 }
 
-export default function GridItem({
+export const GridItem: React.FC<React.PropsWithChildren<Props>> = ({
   title,
   description,
   progress,
@@ -35,11 +39,11 @@ export default function GridItem({
   rowSpan = 1,
   colSpan = 1,
   children,
-}: GridItemProps) {
+  className,
+}) => {
   return (
-    
     <div
-      className={`group relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-neutral-900/50 dark:shadow-neutral-600/50 shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`}
+      className={cn(`group relative p-4 bg-neutral-300/20 dark:bg-neutral-700/20 border border-neutral-300 dark:border-neutral-700 rounded-xl backdrop-blur-md shadow-neutral-900/50 dark:shadow-neutral-600/50 shadow-md overflow-hidden col-span-${colSpan} row-span-${rowSpan} flex flex-col justify-between`, className)}
     >
       {icon && (
         <div className="flex flex-row items-start justify-between">
@@ -49,10 +53,14 @@ export default function GridItem({
             {icon}
           </div>
           {status && (
-  <p className={`text-sm font-bold rounded-full p-1 px-2 border backdrop-blur-md ${getStatusClass(status)}`}>
-    {status}
-  </p>
-)}
+            <p
+              className={`text-sm font-bold rounded-full p-1 px-2 border backdrop-blur-md ${getStatusClass(
+                status
+              )}`}
+            >
+              {status}
+            </p>
+          )}
         </div>
       )}
       {title && <h3 className="text-xl font-bold">{title}</h3>}
@@ -79,4 +87,4 @@ export default function GridItem({
       {children}
     </div>
   );
-}
+};

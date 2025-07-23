@@ -10,7 +10,7 @@ interface TypewriterProps {
   loop?: boolean;
 }
 
-export default function Typewriter({
+export function Typewriter({
   texts,
   speed = 70,
   pause = 1000,

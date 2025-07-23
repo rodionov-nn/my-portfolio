@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Container from "../ui/Container";
-import { GridBackground } from "../ui/GridBackground";
+import { GridBackground } from "../ui";
 import { LuCopy, LuCheck } from "react-icons/lu";
+import { Container } from "../shared";
 
-export default function Contact() {
+export function Contact() {
   const [copied, setCopied] = useState(false);
   const email = "rodionov.nmx@gmail.com";
 
