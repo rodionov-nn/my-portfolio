@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Container } from "./Container";
+import { Container } from "./container";
 import { Divider, NavLink, ThemeToggle } from "../ui";
 
 interface Props {

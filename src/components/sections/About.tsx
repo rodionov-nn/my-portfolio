@@ -1,5 +1,5 @@
 import { Container } from "../shared";
-import { GridBackground } from "../ui";
+import { GridBackground, HighlightText } from "../ui";
 
 export function About() {
   return (
@@ -9,9 +9,7 @@ export function About() {
     >
       <GridBackground>
         <Container className="min-h-screen flex flex-col items-center justify-center text-center gap-8 py-16 md:py-32">
-          <h1>
-            About me
-          </h1>
+          <h1>About me</h1>
 
           <div className="flex flex-col text-md md:text-xl text-justify gap-2 max-w-3xl indent-8">
             <p>
@@ -20,10 +18,13 @@ export function About() {
             </p>
             <p>
               I&apos;ve been interested in IT from a very young age, and when it
-              came time to choose a career path, I enrolled in a two-year degree
-              focused on IT Systems & Networks. That experience gave me a solid
-              foundation in system administration — but more importantly, it
-              sparked my interest in web development.
+              came time to choose a career path, I enrolled in a two-year{" "}
+              <HighlightText>
+                degree focused on IT Systems & Networks
+              </HighlightText>
+              . That experience gave me a solid foundation in system
+              administration — but more importantly, it sparked my interest in
+              web development.
             </p>
             <p>
               Since late 2022, I started building simple websites using just
@@ -34,6 +35,14 @@ export function About() {
               worked, and it significantly leveled up my skills.
             </p>
             <p>
+              To build on that interest, I later enrolled in another degree —
+              this time in{" "}
+              <HighlightText>Web Application Development</HighlightText>. There,
+              I dove deeper into modern web technologies, programming
+              fundamentals, and working with both relational and NoSQL
+              databases.
+            </p>
+            <p>
               Throughout my studies, I continued working on web projects, and by
               mid-2024, I was confidently building solid static websites. At
               that point, I started exploring how to make my work more scalable
@@ -42,7 +51,7 @@ export function About() {
               my needs. This portfolio is my very first project built with it.
             </p>
             <p>
-              I primarily see myself as a Frontend Developer, but I&apos;m also
+              <HighlightText>I primarily see myself as a Frontend Developer</HighlightText>, but I&apos;m also
               curious about the Full Stack path in the future. Besides web
               development, I still carry my system admin background with me — I
               enjoy working with hardware, servers, the Linux CLI, networking,

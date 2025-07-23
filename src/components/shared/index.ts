@@ -1,5 +1,5 @@
-export { Container } from "../shared/Container";
-export { Footer } from "./Footer";
-export { Header } from "./Header";
-export { ShaderBackground } from "./ShaderBackground";
-export { Socials } from "./Socials";
+export { Container } from "./container";
+export { Footer } from "./footer";
+export { Header } from "./header";
+export { ShaderBackground } from "./shader-background";
+export { Socials } from "./socials";

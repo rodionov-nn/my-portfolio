@@ -19,12 +19,7 @@ export function Hero() {
           />
         </h1>
         <p className="text-md md:text-xl text-secondary dark:text-secondary-dark pb-6">
-          I build for the web — with the mindset of a system architect. From UI
-          to deployment, I understand the{" "}
-          <span className="font-bold text-primary dark:text-primary-dark">
-            full stack
-          </span>
-          .
+          Web developer with a sysadmin background — constantly pushing the stack forward.
         </p>
         <ClickToAction />
       </Container>
